@@ -843,23 +843,36 @@ if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
 }
 ?>
 <style>
+    .block {
+        display: block;
+    }
+
+    .invisible {
+        display: none;
+    }
+
     .tabs2 {
+        z-index: 9999;
+        position: fixed;
+        top: 20px;
+        left: 0;
+        right: 0;
         width: 781px;
         margin: 0 auto;
-        /*background-color: green;*/
+        background-color: white;
     }
 
     .sizeTableTabs {
         width: 750px;
         margin: 0 auto;
         padding-top: 9px;
-
     }
 
     .sizeTableTabs li.tab-head-cont section {
         width: 745px;
         position: relative;
         top: -1px;
+        border-bottom: none;
         overflow: visible;
         height: 530px;
     }
@@ -873,21 +886,62 @@ if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
     .sizeTableTabs li.tab-head-cont:last-child a {
         position: inherit !important;
     }
-    .closeModal{
 
+    .closeModal {
         text-align: right;
         position: relative;
         right: 13px;
         font-size: 28px;
         color: #aeaeae;
     }
-    .closeModal span{
+
+    .closeModal span {
         display: inline-block;
-        cursor:pointer;
+        cursor: pointer;
+    }
+
+    .blackScreen {
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 8888;
     }
 </style>
-<div class="tabs2">
-    <div class="closeModal"><span>&times;</span></div>
+
+<div class="PUSHME">PUSH ME</div>
+<script>
+    window.addEventListener("load", function () {
+        var modalButtons = document.getElementsByClassName("PUSHME");
+        var blackScreen = document.getElementsByClassName("blackScreen")[0];
+        var modalTabs = document.getElementsByClassName("tabs2")[0];
+        blackScreen.addEventListener("click", function (ev) {
+            ev.preventDefault();
+            this.className += " invisible";
+            modalTabs.className += " invisible";
+        });
+        var closeButton = document.getElementsByClassName("modalCloseButton")[0];
+        closeButton.addEventListener("click", function (ev) {
+            ev.preventDefault();
+            blackScreen.className += " invisible";
+            modalTabs.className += " invisible";
+        });
+
+        for (var i = 0; i < modalButtons.length; i++) {
+            modalButtons[i].addEventListener("click", function (ev) {
+                ev.preventDefault();
+                blackScreen.className = blackScreen.className.match(/[0-9A-Za-z\-_]+/);
+                modalTabs.className = modalTabs.className.match(/[0-9A-Za-z\-_]+/);
+            });
+        }
+    });
+</script>
+
+<div class="blackScreen invisible"></div>
+<div class="tabs2 invisible">
+    <div class="closeModal"><span class="modalCloseButton">&times;</span></div>
 
     <ul class="accordion-tabs sizeTableTabs">
         <li class="tab-head-cont"><a href="#tabs-1" title="" class="is-active">ЛЕГГИНСЫ/БРЮКИ</a>
@@ -955,17 +1009,16 @@ if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
 
                     .sizeFooterSpan {
                         font-style: italic;
-                        color: #c7c7c7;
+                        color: #a1a0a0;
                         position: relative;
                         top: 21px;
-                        left:17px;
                     }
 
                     .whiteOverSection {
-                        width: 106%;
-                        height: 121px;
+                        width: 101%;
+                        height: 119px;
                         position: relative;
-                        left: -20px;
+                        left: -2px;
                         background-color: white;
                         z-index: 10;
                     }
@@ -1062,6 +1115,8 @@ if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
         </li>
     </ul>
 </div>
+
+
 <script type="text/javascript">
     var <? echo $strObName; ?> =
     new JCCatalogElement(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
