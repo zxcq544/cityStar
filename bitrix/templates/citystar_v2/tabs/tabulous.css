@@ -1,0 +1,93 @@
+/* TABS */
+.accordion-tabs {
+    *zoom: 1;
+    width: 100%;
+    border: 1px solid #dddddd;
+    border-radius: 0.1875em;
+    margin-bottom: 1.5em;
+    margin-left:0;
+    padding-left:0;
+}
+    .accordion-tabs:before,
+    .accordion-tabs:after {
+        content: " ";
+        display: table;
+    }
+    .accordion-tabs:after {
+        clear: both;
+    }
+        .accordion-tabs li{
+            list-style:none;
+        }
+            .accordion-tabs li.tab-head-cont:first-child a {
+            }
+            .accordion-tabs li.tab-head-cont:last-child a {
+                border-bottom-left-radius: 0.1875em;
+                border-bottom-right-radius: 0.1875em;
+            }
+            .accordion-tabs li.tab-head-cont a {
+			border: 1px solid #a7a7a7;
+    color: #a1a0a0;
+    display: block;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 5px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 50%;
+            }
+            .accordion-tabs li.tab-head-cont a:hover {
+            }
+            .accordion-tabs li.tab-head-cont a:focus {
+                outline: none;
+            }
+            .accordion-tabs li.tab-head-cont a.is-active {
+				border-bottom: 1px solid #fff;
+            }
+        .accordion-tabs li.tab-head-cont section {
+            display: none;
+            overflow: hidden;
+            width: 100%;
+        }
+ 
+/* RESPONSIVE */
+@media screen and (min-width: 40em) {
+    .accordion-tabs {
+        border: none;
+        position: relative;
+    }
+        .accordion-tabs li.tab-head-cont {
+            display: inline;
+        }
+            .accordion-tabs li.tab-head-cont:last-child a {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+				  position: absolute;
+				  right: -2px;
+            }
+            .accordion-tabs li.tab-head-cont a {
+                display: inline-block;
+                vertical-align: baseline;
+                zoom: 1;
+                *display: inline;
+                *vertical-align: auto;
+            }
+            .accordion-tabs li.tab-head-cont a.is-active {
+			background:#fff;
+            }
+            .accordion-tabs li.tab-head-cont section {
+			
+                float: left;
+                left: 0;
+				height: 546px;
+	            border: 1px solid #a7a7a7;
+	            border-top:none;
+            }
+                .accordion-tabs li.tab-head-cont section p {
+                }
+}
+#tabs {box-sizing: border-box;
+    float: right;
+    height: 530px;
+    width: 656px;}
+.tab-head-cont a {background-color: #ebebeb;}	
