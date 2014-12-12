@@ -1499,7 +1499,6 @@
     transform: translate(4px, 85px) rotate(-90deg);
 }
 
-
 .sizeTableImageNearVerticalText {
     position: relative;
     width: 120px;
@@ -1535,11 +1534,9 @@
     width: 35px;
 }
 
-.higher{
+.higher {
     height: 165px !important;
 }
-
-
 
 .sizeTable2 {
     display: inline-block;
@@ -1567,7 +1564,7 @@
 }
 
 .wider td {
-    width:6em;
+    width: 6em;
 }
 
 .sizeTable {
@@ -1642,4 +1639,76 @@
     text-decoration: underline;
     cursor: pointer;
     display: inline-block;
+}
+
+/*END SIZE TABLE BUTTON*/
+
+/*BEGIN OFERTA MODAL WINDOW*/
+.blackBackground {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 8888;
+}
+
+.ofertaModalWindow {
+    position: absolute;
+    background-color: white;
+    top: 80px;
+    margin: 0 auto;
+    width: 73.3vw;
+    height: auto;
+    z-index: 9999;
+    left: 0;
+    right: 0;
+}
+
+.ofertaModalClose {
+    text-align: right;
+}
+
+.ofertaModalCloseButton {
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 11px;
+    font-size: 30px;
+    color: #a7a7a7;
+}
+
+.ofertaModalWindow h1 {
+    border-bottom: none !important;
+    padding: 0;
+    font-size: 16px;
+    margin: 0 0 20px 8px;
+}
+
+.ofertaText {
+    margin-top: -10px;
+    padding: 0 25px;
+    font-style: italic;
+}
+
+.ofertaText h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    display: inline;
+    font-style: italic;
+    text-transform: none;
+}
+
+.bolder{
+    font-weight: 500;
+    font-size: 13.4px;
+    font-style: italic;
+}
+
+.ofertaMainText{
+    margin-top: 4px;
+    line-height: 21px;
+    font-size: 13.5px;
+    color:#a7a7a7;
 }
